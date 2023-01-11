@@ -1,0 +1,22 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    
+    /* background-color: orangered; */
+    background-image: url('../images/bg2.jpg');
+ } 
+
+.judul1 h2{
+    color: blue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
+}
+
+.judul1 h1{
+    color: orangered;
+    align-items: center;
+    margin-bottom: 20px;
+} 
