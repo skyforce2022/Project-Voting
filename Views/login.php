@@ -8,52 +8,44 @@
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-
         $result = mysqli_query($connect, "SELECT * FROM user WHERE username = '$username'");
 
-        //cek username
-        if (mysqli_num_rows($result) === 1 ) {
+    //cek username
+    if (mysqli_num_rows($result) === 1 ) {
 
-            //cek password 
-            $row = mysqli_fetch_assoc($result);
-            $verify = password_verify($password, $row["password"]);
+    //cek password 
+    $row = mysqli_fetch_assoc($result);
+    $verify = password_verify($password, $row["password"]);
 
-            if ($verify) {
-                    // header("location: ../Mahasiswa/dashboard/dashboard");
-                    echo "<script>
-                            window.location.href = '../Mahasiswa/vote.php'  
-                            alert('Login sebagai Mahasiswa berhasil');                  
-                        </script>" ;
+    if ($verify) {
+    // header("location: ../Mahasiswa/dashboard/dashboard");
+     echo "<script>
+             window.location.href = '../Mahasiswa/vote.php'  
+             alert('Login sebagai Mahasiswa berhasil');                  
+           </script>" ;
                 exit;
             }
 
         }
-        // $error = true;
-        $result2 = mysqli_query($connect,"SELECT * FROM user WHERE username = '$username' AND password = '$password'");
-        $cek = mysqli_num_rows($result2);
+    // $error = true;
+    $result2 = mysqli_query($connect,"SELECT * FROM user WHERE username = '$username' AND password = '$password'");
+    $cek = mysqli_num_rows($result2);
 
-        if ($cek > 0) {
-            global $result2;
+    if ($cek > 0) {
+    global $result2;
     
-            $data = mysqli_fetch_assoc($result2);
+    $data = mysqli_fetch_assoc($result2);
     
-            if ($data["level"] === "admin") {
+    if ($data["level"] === "admin") {
     
-                echo "<script>
-                        window.location.href = '../admin/dashboard/dashboard.php'
-                        alert('Login sebagai Admin berhasil');
-                    </script>"; 
+        echo "<script>
+                 window.location.href = '../Admin/profile-admin/profile.php'
+                alert('Login sebagai Admin berhasil');
+              </script>"; 
             }
         }
-
-
-
     }
-
-
 ?>
-
-
 
 
 <!DOCTYPE html>
